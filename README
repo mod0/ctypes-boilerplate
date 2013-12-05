@@ -1,0 +1,17 @@
+Disclaimer: I am not responsible for any loss that you may incur in using these codes. Code is GPLed except portions that stress on their own licensing terms.
+
+Note: If you find any code that is not properly attributed or licensed, please do bring it to my immediate attention with the specifics. I will address the issue promptly.
+
+Commands to compile:
+--------------------
+
+$ gcc -c -g -fPIC -Wall PythonC.c
+$ gcc -shared -Wl,-soname,libmypythonc.so -o libmypythonc.so.1.0.0 PythonC.o 
+
+The first command creates a position independent object code with debug symbols. And the second command creates a shared library file with the filename specified as part of -o switch using the object file compiled in the previous step.
+
+Once you compile and create the shared library file, fire up your python interpreter and try out the examples in the accompanying python script file. Lines that are triple quoted are outputs on running the commands in your interpreter. 
+
+Note: You need to change the path to the library on your machine in the python script. You can try setting LD_LIBRARY_PATH using os.environ, but it didn't work for me and I decided to give full path. 
+
+If you find any errors or inaccuracies in this document or in the code, find me and circle me on Google+ and then bash me ;) I am open to constructive criticism.
